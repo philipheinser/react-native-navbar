@@ -30,27 +30,13 @@ const StatusBarShape = {
   showAnimation: PropTypes.oneOf(['fade', 'slide', 'none', ])
 };
 
-function customizeStatusBar(data) {
-  if (Platform.OS === 'ios') {
-    if (data.style) {
-      StatusBar.barStyle(data.style);
-    }
-    const animation = data.hidden ?
-    (data.hideAnimation || NavigationBar.defaultProps.statusBar.hideAnimation) :
-    (data.showAnimation || NavigationBar.defaultProps.statusBar.showAnimation);
-
-    StatusBar.showHideTransition(animation);
-    StatusBar.hidden = data.hidden;
-  }
-}
-
 class NavigationBar extends Component {
   componentDidMount() {
-    customizeStatusBar(this.props.statusBar);
+    
   }
 
   componentWillReceiveProps(props) {
-    customizeStatusBar(this.props.statusBar);
+    
   }
 
   getButtonElement(data = {}, style) {
